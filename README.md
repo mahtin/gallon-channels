@@ -3,12 +3,12 @@ A quick script to show which received GNSS channels/frequencies a [galmon](https
 
 It assumed the standard galmon install (i.e log files in `/run/ubxtool/`).
 
-# The script
+## The script
 It's at [galmon-channels.sh](galmon-channels.sh)
 
 Don't forget to `chmod +x` the file once you've downloaded it.
 
-# Results (for a U-Blox Series-9 ZED-F9P chip)
+## Results (for a U-Blox Series-9 ZED-F9P chip)
 ```
 GPS:
 		   L0	   L1	   L2	   L4	   L5	
@@ -128,7 +128,7 @@ GLONASS:
 NavIC:
 		   L0	   L1	   L2	   L4	   L5	
 ```
-# Results (for a U-Blox Series 8 chip)
+## Results (for a U-Blox Series 8 chip)
 ```
 GPS:
 		   L0	   L1	
