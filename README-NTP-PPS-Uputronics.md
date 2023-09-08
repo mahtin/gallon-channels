@@ -11,15 +11,11 @@ sudo apt update && sudo apt upgrade -y
 Then install all the needed s/w. Note that I do load up a few extra things ('cause Python); however, this is all a quick process.
 ```
 # The absolute basics.
-sudo apt-get install -y git vim
-
-# The Python install (to get everything correct).
-sudo apt install --upgrade python3 pip
-sudo python -m pip install --upgrade pip
-sudo pip install pyboard pyserial rshell
+sudo apt install -y git vim
 
 # The galmon compile requires these.
-sudo apt-get install -y protobuf-compiler libh2o-dev libcurl4-openssl-dev libssl-dev libprotobuf-dev libh2o-evloop-dev libwslay-dev libncurses5-dev libeigen3-dev libzstd-dev g++
+sudo apt install -y protobuf-compiler g++
+sudo apt install -y libh2o-dev libcurl4-openssl-dev libssl-dev libprotobuf-dev libh2o-evloop-dev libwslay-dev libncurses5-dev libeigen3-dev libzstd-dev
 
 # Grab galmon and compile.
 mkdir -p ~/src/github/berthubert
@@ -92,14 +88,15 @@ If you have galmon-channels.sh wait a few mins and run it ...
 BTW: galmon-channels.sh is from [https://github.com/mahtin/galmon-channels](galmon-channels).
 
 ## NTP setup
-Install NTP and confirm it works in it's basic setup (i.e. before PPS support).
+Install NTP & PPS. Confirm it works in it's basic setup (i.e. before PPS edits and support is enabled).
 ```
-	sudo apt install -y ntp pps-tools libcap-dev 
+sudo apt install -y ntp pps-tools libcap-dev 
 
-	# prove it's up and working ...
-	systemctl status ntp
-	ntpq -c peers
+# prove it's up and working ...
+systemctl status ntp
+ntpq -c peers
 ```
+Note that `libcap-dev` is only needed if you wish to run NTP as non-root. Hint: You want to do this!!!
 
 ## PPS support.
 These are the new PPS support lines for /etc/ntp.conf -- add anywhere - these are found all over the Interwebs; they are correct.
